@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\CefSharp.Common.86.0.241\build\CefSharp.Common.props" Condition="Exists('..\packages\CefSharp.Common.86.0.241\build\CefSharp.Common.props')" />
   <Import Project="..\packages\cef.redist.x86.86.0.24\build\cef.redist.x86.props" Condition="Exists('..\packages\cef.redist.x86.86.0.24\build\cef.redist.x86.props')" />
@@ -119,9 +119,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Reference Include="Guna.UI">
+      <HintPath>..\..\..\..\..\..\Downloads\Guna.UI-Framework-Lib-master\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 4.0\Guna.UI.dll</HintPath>
+    </Reference>
     <Reference Include="Guna.UI2">
       <HintPath>..\..\..\..\..\..\Downloads\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Guna.UI2 WinForms\.net 4.0\Guna.UI2.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="NAudio">
       <HintPath>..\..\..\..\..\..\Downloads\NAudio(1)\NAudio.dll</HintPath>
     </Reference>
@@ -140,16 +144,85 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AuthForm.cpp" />
+    <ClCompile Include="AuthFunction.cpp" />
+    <ClCompile Include="AuthInterface.cpp" />
+    <ClCompile Include="CreateRoomForm.cpp" />
     <ClCompile Include="HomeForm.cpp" />
+    <ClCompile Include="LibraryFunctionItem.cpp" />
+    <ClCompile Include="ListAudioItem.cpp" />
+    <ClCompile Include="ListIconConf.cpp" />
+    <ClCompile Include="ListUserItem.cpp" />
+    <ClCompile Include="MediaPlayer.cpp" />
+    <ClCompile Include="RecordAudio.cpp" />
+    <ClCompile Include="RoomFunction.cpp" />
+    <ClCompile Include="RoomItem.cpp" />
+    <ClCompile Include="SaveAudioForm.cpp" />
+    <ClCompile Include="SetupInterface.cpp" />
+    <ClCompile Include="SplashScreenForm.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AuthForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="CreateRoomForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="HomeForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="json.hpp" />
+    <ClInclude Include="ListAudioItem.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="ListIconConf.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="ListUserItem.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="NetFunction.h" />
+    <ClInclude Include="RoomItem.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="SaveAudioForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="SplashScreenForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AuthForm.resx">
+      <DependentUpon>AuthForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateRoomForm.resx">
+      <DependentUpon>CreateRoomForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomeForm.resx">
+      <DependentUpon>HomeForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListAudioItem.resx">
+      <DependentUpon>ListAudioItem.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListIconConf.resx">
+      <DependentUpon>ListIconConf.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListUserItem.resx">
+      <DependentUpon>ListUserItem.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoomItem.resx">
+      <DependentUpon>RoomItem.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SaveAudioForm.resx">
+      <DependentUpon>SaveAudioForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreenForm.resx">
+      <DependentUpon>SplashScreenForm.h</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

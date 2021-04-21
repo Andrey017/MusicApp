@@ -13,9 +13,66 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
+    <Filter Include="Исходные файлы\AuthFunction">
+      <UniqueIdentifier>{37ad5d27-ae72-47bf-b2d9-6a1bd8024859}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Home">
+      <UniqueIdentifier>{f2470e83-76f8-4106-bf74-a01848d0d491}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Home\Studio">
+      <UniqueIdentifier>{c9feee6e-f5a2-4390-b8d4-6386d6b88e62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Home\Library">
+      <UniqueIdentifier>{4e3512b4-36ae-470e-a280-41c571637c24}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HomeForm.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="AuthForm.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="AuthInterface.cpp">
+      <Filter>Исходные файлы\AuthFunction</Filter>
+    </ClCompile>
+    <ClCompile Include="AuthFunction.cpp">
+      <Filter>Исходные файлы\AuthFunction</Filter>
+    </ClCompile>
+    <ClCompile Include="RoomItem.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="RoomFunction.cpp">
+      <Filter>Исходные файлы\Home\Studio</Filter>
+    </ClCompile>
+    <ClCompile Include="ListUserItem.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="ListIconConf.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="SetupInterface.cpp">
+      <Filter>Исходные файлы\Home</Filter>
+    </ClCompile>
+    <ClCompile Include="SplashScreenForm.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="ListAudioItem.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="LibraryFunctionItem.cpp">
+      <Filter>Исходные файлы\Home\Library</Filter>
+    </ClCompile>
+    <ClCompile Include="RecordAudio.cpp">
+      <Filter>Исходные файлы\Home\Library</Filter>
+    </ClCompile>
+    <ClCompile Include="MediaPlayer.cpp">
+      <Filter>Исходные файлы\Home\Library</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateRoomForm.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="SaveAudioForm.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -24,6 +81,33 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="json.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="AuthForm.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="NetFunction.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="RoomItem.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="ListUserItem.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="ListIconConf.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="SplashScreenForm.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="ListAudioItem.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateRoomForm.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveAudioForm.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
