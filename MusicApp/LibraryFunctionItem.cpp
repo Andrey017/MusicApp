@@ -58,13 +58,18 @@ void MusicApp::HomeForm::AudoiItemClick(System::Object^ sender, System::EventArg
 	label_name_audio_play->Text = audioI->getName_Audio();
 	label_name_creator_audio_play->Text = audioI->getName_Creator_Audio();
 
-	loadSaveImage(audioI->getPath_Picture_Audio());
-	
-	panel_music->Visible = true;
+	if (checkFileDownload("./load/audio/" + audioI->getName_Audio() + ".wav")) {
+		loadSaveImage(audioI->getPath_Picture_Audio());
 
-	file_music = "./load/audio/" + label_name_audio_play->Text + ".wav";
+		panel_music->Visible = true;
 
-	loadMusicFile();
+		file_music = "./load/audio/" + label_name_audio_play->Text + ".wav";
+
+		loadMusicFile();
+	}
+	else {
+		MessageBox::Show("Выбранный файл не загружен. Необходимо сначала загрузить");
+	}
 }
 
 //Загрузка списка комнат
@@ -98,13 +103,25 @@ int MusicApp::HomeForm::Load_List_Audio() {
 			int id_room_str = responseJSON[i]["id_room"];
 			int access_str = responseJSON[i]["access"];
 			std::string path_picture_str = netFunction->UTF8ToANSI(responseJSON[i]["path_picture"]);
+			int type_str = responseJSON[i]["type"];
 
 			list_id_audio.push_back(audio_id);
 			list_name_audio.push_back(name_audio_str);
 			list_creators_audio.push_back(name_creators_str);
 			list_id_room.push_back(id_room_str);
 			list_access.push_back(access_str);
-			list_path_picture.push_back(path_picture_str);
+
+			if (type_str == 1) {
+				list_path_picture.push_back(path_picture_str);
+			}
+			else {
+				if (teme == "1") {
+					list_path_picture.push_back("icons8_music_100px_white.png");
+				}
+				else {
+					list_path_picture.push_back("icons8_music_100px_black.png");
+				}
+			}
 		}
 
 		addAudioItem(list_id_audio, list_name_audio, list_creators_audio, list_id_room, list_access, list_path_picture);

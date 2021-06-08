@@ -132,6 +132,7 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Management" />
@@ -144,30 +145,53 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AddItemMusicEdit.cpp" />
     <ClCompile Include="AuthForm.cpp" />
     <ClCompile Include="AuthFunction.cpp" />
     <ClCompile Include="AuthInterface.cpp" />
+    <ClCompile Include="Complex.cpp" />
     <ClCompile Include="CreateRoomForm.cpp" />
+    <ClCompile Include="ElemList.cpp" />
+    <ClCompile Include="FFTransform.cpp" />
+    <ClCompile Include="FrequencyCheck.cpp" />
     <ClCompile Include="HomeForm.cpp" />
     <ClCompile Include="LibraryFunctionItem.cpp" />
     <ClCompile Include="ListAudioItem.cpp" />
     <ClCompile Include="ListIconConf.cpp" />
     <ClCompile Include="ListUserItem.cpp" />
+    <ClCompile Include="ListWayItem.cpp" />
     <ClCompile Include="MediaPlayer.cpp" />
+    <ClCompile Include="MixFileMusic.cpp" />
+    <ClCompile Include="MovingTrack.cpp" />
+    <ClCompile Include="MusicEditForm.cpp" />
+    <ClCompile Include="MusicEditInterface.cpp" />
+    <ClCompile Include="MusicEditSaveFile.cpp" />
+    <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="RecordAudio.cpp" />
     <ClCompile Include="RoomFunction.cpp" />
     <ClCompile Include="RoomItem.cpp" />
     <ClCompile Include="SaveAudioForm.cpp" />
+    <ClCompile Include="SettingsStudioForm.cpp" />
     <ClCompile Include="SetupInterface.cpp" />
     <ClCompile Include="SplashScreenForm.cpp" />
+    <ClCompile Include="TabItem.cpp" />
+    <ClCompile Include="TabList.cpp" />
+    <ClCompile Include="TabOpen.cpp" />
+    <ClCompile Include="Tabs.cpp" />
+    <ClCompile Include="TabSave.cpp" />
+    <ClCompile Include="WayEditorItem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AuthForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Complex.h" />
     <ClInclude Include="CreateRoomForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="ElemList.h" />
+    <ClInclude Include="FFTransform.h" />
+    <ClInclude Include="FrequencyCheck.h" />
     <ClInclude Include="HomeForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -181,6 +205,15 @@
     <ClInclude Include="ListUserItem.h">
       <FileType>CppControl</FileType>
     </ClInclude>
+    <ClInclude Include="ListWayItem.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="MusicEditForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="MyForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="NetFunction.h" />
     <ClInclude Include="RoomItem.h">
       <FileType>CppControl</FileType>
@@ -188,8 +221,29 @@
     <ClInclude Include="SaveAudioForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="SettingsStudioForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="SplashScreenForm.h">
       <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="TabItem.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="TabList.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="TabOpen.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Tabs.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="TabSave.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="WayEditorItem.h">
+      <FileType>CppControl</FileType>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -214,14 +268,38 @@
     <EmbeddedResource Include="ListUserItem.resx">
       <DependentUpon>ListUserItem.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ListWayItem.resx">
+      <DependentUpon>ListWayItem.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MusicEditForm.resx">
+      <DependentUpon>MusicEditForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm.resx">
+      <DependentUpon>MyForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RoomItem.resx">
       <DependentUpon>RoomItem.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SaveAudioForm.resx">
       <DependentUpon>SaveAudioForm.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SettingsStudioForm.resx">
+      <DependentUpon>SettingsStudioForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SplashScreenForm.resx">
       <DependentUpon>SplashScreenForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TabOpen.resx">
+      <DependentUpon>TabOpen.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tabs.resx">
+      <DependentUpon>Tabs.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TabSave.resx">
+      <DependentUpon>TabSave.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WayEditorItem.resx">
+      <DependentUpon>WayEditorItem.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

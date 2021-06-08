@@ -204,6 +204,7 @@ namespace MusicApp {
 			this->label_creators_room->Size = System::Drawing::Size(97, 19);
 			this->label_creators_room->TabIndex = 3;
 			this->label_creators_room->Text = L"creators_room";
+			this->label_creators_room->Visible = false;
 			// 
 			// button_count_uv
 			// 

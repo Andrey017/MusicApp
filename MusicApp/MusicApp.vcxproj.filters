@@ -9,10 +9,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Файлы заголовков">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="Исходные файлы\AuthFunction">
       <UniqueIdentifier>{37ad5d27-ae72-47bf-b2d9-6a1bd8024859}</UniqueIdentifier>
     </Filter>
@@ -24,6 +20,19 @@
     </Filter>
     <Filter Include="Исходные файлы\Home\Library">
       <UniqueIdentifier>{4e3512b4-36ae-470e-a280-41c571637c24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\MusicEdit">
+      <UniqueIdentifier>{be664813-95ad-46a0-9c63-6757641c8b60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Исходные файлы\Tuner">
+      <UniqueIdentifier>{e50f21cd-57e3-4a8b-9081-856a7b40ce85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Tab">
+      <UniqueIdentifier>{17e198dc-87fb-4399-bfbb-831a8bb9a760}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -75,40 +84,139 @@
     <ClCompile Include="SaveAudioForm.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="WayEditorItem.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="ListWayItem.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicEditForm.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicEditInterface.cpp">
+      <Filter>Исходные файлы\MusicEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicEditSaveFile.cpp">
+      <Filter>Исходные файлы\MusicEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="AddItemMusicEdit.cpp">
+      <Filter>Исходные файлы\MusicEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="MovingTrack.cpp">
+      <Filter>Исходные файлы\MusicEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="MixFileMusic.cpp">
+      <Filter>Исходные файлы\MusicEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="MyForm.cpp">
+      <Filter>Исходные файлы\Tuner</Filter>
+    </ClCompile>
+    <ClCompile Include="FrequencyCheck.cpp">
+      <Filter>Исходные файлы\Tuner</Filter>
+    </ClCompile>
+    <ClCompile Include="FFTransform.cpp">
+      <Filter>Исходные файлы\Tuner</Filter>
+    </ClCompile>
+    <ClCompile Include="Complex.cpp">
+      <Filter>Исходные файлы\Tuner</Filter>
+    </ClCompile>
+    <ClCompile Include="Tabs.cpp">
+      <Filter>Исходные файлы\Tab</Filter>
+    </ClCompile>
+    <ClCompile Include="TabOpen.cpp">
+      <Filter>Исходные файлы\Tab</Filter>
+    </ClCompile>
+    <ClCompile Include="TabSave.cpp">
+      <Filter>Исходные файлы\Tab</Filter>
+    </ClCompile>
+    <ClCompile Include="TabItem.cpp">
+      <Filter>Исходные файлы\Tab</Filter>
+    </ClCompile>
+    <ClCompile Include="ElemList.cpp">
+      <Filter>Исходные файлы\Tab</Filter>
+    </ClCompile>
+    <ClCompile Include="TabList.cpp">
+      <Filter>Исходные файлы\Tab</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingsStudioForm.cpp">
+      <Filter>Исходные файлы\Home\Studio</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HomeForm.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Исходные файлы\Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="json.hpp">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Исходные файлы\Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="AuthForm.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Исходные файлы\Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="NetFunction.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Исходные файлы\Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="RoomItem.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Исходные файлы\Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="ListUserItem.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Исходные файлы\Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="ListIconConf.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Исходные файлы\Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="SplashScreenForm.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Исходные файлы\Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="ListAudioItem.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Исходные файлы\Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="CreateRoomForm.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Исходные файлы\Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="SaveAudioForm.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Исходные файлы\Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="WayEditorItem.h">
+      <Filter>Исходные файлы\Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="ListWayItem.h">
+      <Filter>Исходные файлы\Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicEditForm.h">
+      <Filter>Исходные файлы\Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="MyForm.h">
+      <Filter>Исходные файлы\Tuner</Filter>
+    </ClInclude>
+    <ClInclude Include="FrequencyCheck.h">
+      <Filter>Исходные файлы\Tuner</Filter>
+    </ClInclude>
+    <ClInclude Include="FFTransform.h">
+      <Filter>Исходные файлы\Tuner</Filter>
+    </ClInclude>
+    <ClInclude Include="Complex.h">
+      <Filter>Исходные файлы\Tuner</Filter>
+    </ClInclude>
+    <ClInclude Include="Tabs.h">
+      <Filter>Исходные файлы\Tab</Filter>
+    </ClInclude>
+    <ClInclude Include="TabOpen.h">
+      <Filter>Исходные файлы\Tab</Filter>
+    </ClInclude>
+    <ClInclude Include="TabSave.h">
+      <Filter>Исходные файлы\Tab</Filter>
+    </ClInclude>
+    <ClInclude Include="TabItem.h">
+      <Filter>Исходные файлы\Tab</Filter>
+    </ClInclude>
+    <ClInclude Include="ElemList.h">
+      <Filter>Исходные файлы\Tab</Filter>
+    </ClInclude>
+    <ClInclude Include="TabList.h">
+      <Filter>Исходные файлы\Tab</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingsStudioForm.h">
+      <Filter>Исходные файлы\Home\Studio</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

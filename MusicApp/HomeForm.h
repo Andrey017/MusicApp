@@ -9,6 +9,12 @@
 
 #include "CreateRoomForm.h"
 #include "SaveAudioForm.h"
+#include "Tabs.h"
+#include "MyForm.h"
+
+#include "MusicEditForm.h"
+#include "WayEditorItem.h"
+#include "SettingsStudioForm.h"
 
 #include "RoomItem.h"
 #include "ListUserItem.h"
@@ -81,13 +87,13 @@ namespace MusicApp {
 			name_avatar = _name_avatar;
 
 			textBox_name_surname->Text = name_surname;
-			guna2CirclePictureBox1->Image = Image::FromFile("./load/pictures/" + name_avatar);
+			//guna2CirclePictureBox1->Image = Image::FromFile("./load/pictures/" + name_avatar);
 
-			Panel_home_start_panel->Visible = true;
-			panel_home_studio->Visible = false;
+			Panel_home_start_panel->Visible = false;
+			panel_home_studio->Visible = true;
 
-			Panel_home_start_panel->Left = w_Visible;
-			panel_home_studio->Left = w_Not_Visible;
+			Panel_home_start_panel->Left = w_Not_Visible;
+			panel_home_studio->Left = w_Visible;
 
 			CefSettings^ settings = gcnew CefSettings();
 			settings->CefCommandLineArgs->Add("ignore-certificate-errors");
@@ -100,7 +106,7 @@ namespace MusicApp {
 			panel_conf->Controls->Add(browser);
 			panel_conf->Height = 0;
 
-			teme = _teme;
+			teme = "1"; //_teme;
 
 			if (teme == "1") {
 				SetupInterface();
@@ -138,6 +144,7 @@ namespace MusicApp {
 			 bool record = false;
 
 			 WaveIn^ waveIn;
+			 IWaveIn^ waveIn_wasapiLoopbackCapture;
 			 WaveFileWriter^ writer;
 			 String^ outFileName; // = "TEST_File.wav";
 
@@ -155,8 +162,20 @@ namespace MusicApp {
 			 bool access_in;
 			 String^ path_picture_music;
 			 int check_music_or_way = 0;
+			 int change_one_or_more = 0;
+
+			 int sett_sam_freq;
+			 int sett_bit;
+			 int sett_count_chanel;
+			 double sett_thres;
 
 			 int downButton_list = 1;
+
+			 bool call_start = false;
+			 bool video_on = false;
+
+			 bool check_open_form_tab = false;
+			 bool check_open_form_tuner = false;
 
 			 //Для интерфейса
 			 int d_r_back = 15;
@@ -217,7 +236,7 @@ namespace MusicApp {
 private: Guna::UI2::WinForms::Guna2ImageButton^ button_add_new_user;
 
 private: Guna::UI2::WinForms::Guna2ImageButton^ button_conf_start_call;
-private: Guna::UI2::WinForms::Guna2ImageButton^ button_conf_cancel_call;
+
 private: Guna::UI2::WinForms::Guna2TextBox^ textBox_add_new_user_room;
 private: System::Windows::Forms::FlowLayoutPanel^ panel_list_user_rom;
 private: Guna::UI2::WinForms::Guna2ImageButton^ button_record;
@@ -243,12 +262,20 @@ private: System::Windows::Forms::Label^ label_name_creator_audio_play;
 
 private: System::Windows::Forms::Label^ label_name_audio_play;
 private: Guna::UI2::WinForms::Guna2PictureBox^ pictureBox_audio_play;
-private: Guna::UI2::WinForms::Guna2ProgressIndicator^ progressIndicator_user_load;
+
 private: Guna::UI2::WinForms::Guna2Button^ button_load_list_way;
 
 private: Guna::UI2::WinForms::Guna2Button^ button_load_list_music;
 private: System::Windows::Forms::Label^ label_nothing_1;
 private: System::Windows::Forms::Label^ label_nothing_2;
+private: Guna::UI2::WinForms::Guna2Panel^ panel_tab;
+private: Guna::UI2::WinForms::Guna2Panel^ panel_tab_tab;
+private: Guna::UI2::WinForms::Guna2ImageButton^ button_open_tab;
+private: Guna::UI2::WinForms::Guna2ImageButton^ button_on_off_camera;
+private: Guna::UI2::WinForms::Guna2ImageButton^ button_settings_conf;
+
+
+
 
 
 
@@ -310,12 +337,15 @@ private: System::ComponentModel::IContainer^ components;
 			this->guna2CirclePictureBox1 = (gcnew Guna::UI2::WinForms::Guna2CirclePictureBox());
 			this->panel_home_studio = (gcnew Guna::UI2::WinForms::Guna2Panel());
 			this->panel_studio_conf = (gcnew Guna::UI2::WinForms::Guna2Panel());
-			this->progressIndicator_user_load = (gcnew Guna::UI2::WinForms::Guna2ProgressIndicator());
+			this->panel_tab = (gcnew Guna::UI2::WinForms::Guna2Panel());
+			this->panel_tab_tab = (gcnew Guna::UI2::WinForms::Guna2Panel());
+			this->button_open_tab = (gcnew Guna::UI2::WinForms::Guna2ImageButton());
 			this->panel_studio_users = (gcnew Guna::UI2::WinForms::Guna2Panel());
+			this->button_settings_conf = (gcnew Guna::UI2::WinForms::Guna2ImageButton());
+			this->button_on_off_camera = (gcnew Guna::UI2::WinForms::Guna2ImageButton());
 			this->button_record = (gcnew Guna::UI2::WinForms::Guna2ImageButton());
 			this->panel_list_user_rom = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->textBox_add_new_user_room = (gcnew Guna::UI2::WinForms::Guna2TextBox());
-			this->button_conf_cancel_call = (gcnew Guna::UI2::WinForms::Guna2ImageButton());
 			this->button_add_new_user = (gcnew Guna::UI2::WinForms::Guna2ImageButton());
 			this->button_conf_start_call = (gcnew Guna::UI2::WinForms::Guna2ImageButton());
 			this->label_conf_name_room = (gcnew System::Windows::Forms::Label());
@@ -350,6 +380,7 @@ private: System::ComponentModel::IContainer^ components;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->guna2CirclePictureBox1))->BeginInit();
 			this->panel_home_studio->SuspendLayout();
 			this->panel_studio_conf->SuspendLayout();
+			this->panel_tab->SuspendLayout();
 			this->panel_studio_users->SuspendLayout();
 			this->panel_studio_room->SuspendLayout();
 			this->panel_music->SuspendLayout();
@@ -393,12 +424,13 @@ private: System::ComponentModel::IContainer^ components;
 			this->guna2Button6->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"guna2Button6.Image")));
 			this->guna2Button6->ImageAlign = System::Windows::Forms::HorizontalAlignment::Left;
 			this->guna2Button6->ImageSize = System::Drawing::Size(30, 30);
-			this->guna2Button6->Location = System::Drawing::Point(0, 425);
+			this->guna2Button6->Location = System::Drawing::Point(0, 321);
 			this->guna2Button6->Name = L"guna2Button6";
 			this->guna2Button6->ShadowDecoration->Parent = this->guna2Button6;
 			this->guna2Button6->Size = System::Drawing::Size(276, 45);
 			this->guna2Button6->TabIndex = 7;
 			this->guna2Button6->Text = L"Тюнер";
+			this->guna2Button6->Click += gcnew System::EventHandler(this, &HomeForm::guna2Button6_Click);
 			// 
 			// guna2Button5
 			// 
@@ -414,12 +446,13 @@ private: System::ComponentModel::IContainer^ components;
 			this->guna2Button5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"guna2Button5.Image")));
 			this->guna2Button5->ImageAlign = System::Windows::Forms::HorizontalAlignment::Left;
 			this->guna2Button5->ImageSize = System::Drawing::Size(30, 30);
-			this->guna2Button5->Location = System::Drawing::Point(0, 374);
+			this->guna2Button5->Location = System::Drawing::Point(0, 270);
 			this->guna2Button5->Name = L"guna2Button5";
 			this->guna2Button5->ShadowDecoration->Parent = this->guna2Button5;
 			this->guna2Button5->Size = System::Drawing::Size(276, 45);
 			this->guna2Button5->TabIndex = 6;
 			this->guna2Button5->Text = L"Редактор";
+			this->guna2Button5->Click += gcnew System::EventHandler(this, &HomeForm::guna2Button5_Click);
 			// 
 			// guna2Button4
 			// 
@@ -435,12 +468,13 @@ private: System::ComponentModel::IContainer^ components;
 			this->guna2Button4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"guna2Button4.Image")));
 			this->guna2Button4->ImageAlign = System::Windows::Forms::HorizontalAlignment::Left;
 			this->guna2Button4->ImageSize = System::Drawing::Size(30, 30);
-			this->guna2Button4->Location = System::Drawing::Point(0, 323);
+			this->guna2Button4->Location = System::Drawing::Point(0, 219);
 			this->guna2Button4->Name = L"guna2Button4";
 			this->guna2Button4->ShadowDecoration->Parent = this->guna2Button4;
 			this->guna2Button4->Size = System::Drawing::Size(276, 45);
 			this->guna2Button4->TabIndex = 5;
 			this->guna2Button4->Text = L"Табулатура";
+			this->guna2Button4->Click += gcnew System::EventHandler(this, &HomeForm::guna2Button4_Click);
 			// 
 			// guna2Button3
 			// 
@@ -456,7 +490,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->guna2Button3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"guna2Button3.Image")));
 			this->guna2Button3->ImageAlign = System::Windows::Forms::HorizontalAlignment::Left;
 			this->guna2Button3->ImageSize = System::Drawing::Size(30, 30);
-			this->guna2Button3->Location = System::Drawing::Point(0, 272);
+			this->guna2Button3->Location = System::Drawing::Point(0, 168);
 			this->guna2Button3->Name = L"guna2Button3";
 			this->guna2Button3->ShadowDecoration->Parent = this->guna2Button3;
 			this->guna2Button3->Size = System::Drawing::Size(276, 45);
@@ -478,7 +512,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->guna2Button2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"guna2Button2.Image")));
 			this->guna2Button2->ImageAlign = System::Windows::Forms::HorizontalAlignment::Left;
 			this->guna2Button2->ImageSize = System::Drawing::Size(30, 30);
-			this->guna2Button2->Location = System::Drawing::Point(0, 200);
+			this->guna2Button2->Location = System::Drawing::Point(0, 96);
 			this->guna2Button2->Name = L"guna2Button2";
 			this->guna2Button2->ShadowDecoration->Parent = this->guna2Button2;
 			this->guna2Button2->Size = System::Drawing::Size(276, 45);
@@ -500,12 +534,13 @@ private: System::ComponentModel::IContainer^ components;
 			this->guna2Button1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"guna2Button1.Image")));
 			this->guna2Button1->ImageAlign = System::Windows::Forms::HorizontalAlignment::Left;
 			this->guna2Button1->ImageSize = System::Drawing::Size(30, 30);
-			this->guna2Button1->Location = System::Drawing::Point(0, 149);
+			this->guna2Button1->Location = System::Drawing::Point(0, 529);
 			this->guna2Button1->Name = L"guna2Button1";
 			this->guna2Button1->ShadowDecoration->Parent = this->guna2Button1;
 			this->guna2Button1->Size = System::Drawing::Size(276, 45);
 			this->guna2Button1->TabIndex = 2;
 			this->guna2Button1->Text = L"Поиск";
+			this->guna2Button1->Visible = false;
 			// 
 			// button_home_menu_home
 			// 
@@ -521,12 +556,13 @@ private: System::ComponentModel::IContainer^ components;
 			this->button_home_menu_home->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button_home_menu_home.Image")));
 			this->button_home_menu_home->ImageAlign = System::Windows::Forms::HorizontalAlignment::Left;
 			this->button_home_menu_home->ImageSize = System::Drawing::Size(30, 30);
-			this->button_home_menu_home->Location = System::Drawing::Point(0, 98);
+			this->button_home_menu_home->Location = System::Drawing::Point(0, 478);
 			this->button_home_menu_home->Name = L"button_home_menu_home";
 			this->button_home_menu_home->ShadowDecoration->Parent = this->button_home_menu_home;
 			this->button_home_menu_home->Size = System::Drawing::Size(276, 45);
 			this->button_home_menu_home->TabIndex = 1;
 			this->button_home_menu_home->Text = L"Главная";
+			this->button_home_menu_home->Visible = false;
 			this->button_home_menu_home->Click += gcnew System::EventHandler(this, &HomeForm::button_home_menu_home_Click);
 			// 
 			// Panel_home_start_panel
@@ -703,7 +739,7 @@ private: System::ComponentModel::IContainer^ components;
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->panel_studio_conf->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(241)),
 				static_cast<System::Int32>(static_cast<System::Byte>(241)), static_cast<System::Int32>(static_cast<System::Byte>(241)));
-			this->panel_studio_conf->Controls->Add(this->progressIndicator_user_load);
+			this->panel_studio_conf->Controls->Add(this->panel_tab);
 			this->panel_studio_conf->Controls->Add(this->panel_studio_users);
 			this->panel_studio_conf->Controls->Add(this->panel_conf);
 			this->panel_studio_conf->Controls->Add(this->label4);
@@ -714,22 +750,47 @@ private: System::ComponentModel::IContainer^ components;
 			this->panel_studio_conf->TabIndex = 10;
 			this->panel_studio_conf->Visible = false;
 			// 
-			// progressIndicator_user_load
+			// panel_tab
 			// 
-			this->progressIndicator_user_load->CircleSize = 1;
-			this->progressIndicator_user_load->Location = System::Drawing::Point(232, 458);
-			this->progressIndicator_user_load->Name = L"progressIndicator_user_load";
-			this->progressIndicator_user_load->Size = System::Drawing::Size(90, 90);
-			this->progressIndicator_user_load->TabIndex = 13;
-			this->progressIndicator_user_load->Visible = false;
+			this->panel_tab->Controls->Add(this->panel_tab_tab);
+			this->panel_tab->Controls->Add(this->button_open_tab);
+			this->panel_tab->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->panel_tab->Location = System::Drawing::Point(0, 400);
+			this->panel_tab->Name = L"panel_tab";
+			this->panel_tab->ShadowDecoration->Parent = this->panel_tab;
+			this->panel_tab->Size = System::Drawing::Size(528, 287);
+			this->panel_tab->TabIndex = 13;
+			// 
+			// panel_tab_tab
+			// 
+			this->panel_tab_tab->Dock = System::Windows::Forms::DockStyle::Bottom;
+			this->panel_tab_tab->Location = System::Drawing::Point(0, 47);
+			this->panel_tab_tab->Name = L"panel_tab_tab";
+			this->panel_tab_tab->ShadowDecoration->Parent = this->panel_tab_tab;
+			this->panel_tab_tab->Size = System::Drawing::Size(528, 240);
+			this->panel_tab_tab->TabIndex = 19;
+			// 
+			// button_open_tab
+			// 
+			this->button_open_tab->CheckedState->Parent = this->button_open_tab;
+			this->button_open_tab->HoverState->ImageSize = System::Drawing::Size(30, 30);
+			this->button_open_tab->HoverState->Parent = this->button_open_tab;
+			this->button_open_tab->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button_open_tab.Image")));
+			this->button_open_tab->ImageSize = System::Drawing::Size(30, 30);
+			this->button_open_tab->Location = System::Drawing::Point(10, 8);
+			this->button_open_tab->Name = L"button_open_tab";
+			this->button_open_tab->PressedState->Parent = this->button_open_tab;
+			this->button_open_tab->Size = System::Drawing::Size(36, 36);
+			this->button_open_tab->TabIndex = 18;
 			// 
 			// panel_studio_users
 			// 
 			this->panel_studio_users->BackColor = System::Drawing::Color::White;
+			this->panel_studio_users->Controls->Add(this->button_settings_conf);
+			this->panel_studio_users->Controls->Add(this->button_on_off_camera);
 			this->panel_studio_users->Controls->Add(this->button_record);
 			this->panel_studio_users->Controls->Add(this->panel_list_user_rom);
 			this->panel_studio_users->Controls->Add(this->textBox_add_new_user_room);
-			this->panel_studio_users->Controls->Add(this->button_conf_cancel_call);
 			this->panel_studio_users->Controls->Add(this->button_add_new_user);
 			this->panel_studio_users->Controls->Add(this->button_conf_start_call);
 			this->panel_studio_users->Controls->Add(this->label_conf_name_room);
@@ -740,6 +801,36 @@ private: System::ComponentModel::IContainer^ components;
 			this->panel_studio_users->Size = System::Drawing::Size(329, 287);
 			this->panel_studio_users->TabIndex = 12;
 			// 
+			// button_settings_conf
+			// 
+			this->button_settings_conf->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->button_settings_conf->CheckedState->Parent = this->button_settings_conf;
+			this->button_settings_conf->HoverState->ImageSize = System::Drawing::Size(30, 30);
+			this->button_settings_conf->HoverState->Parent = this->button_settings_conf;
+			this->button_settings_conf->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button_settings_conf.Image")));
+			this->button_settings_conf->ImageSize = System::Drawing::Size(30, 30);
+			this->button_settings_conf->Location = System::Drawing::Point(242, 44);
+			this->button_settings_conf->Name = L"button_settings_conf";
+			this->button_settings_conf->PressedState->Parent = this->button_settings_conf;
+			this->button_settings_conf->Size = System::Drawing::Size(36, 36);
+			this->button_settings_conf->TabIndex = 19;
+			this->button_settings_conf->Click += gcnew System::EventHandler(this, &HomeForm::button_settings_conf_Click);
+			// 
+			// button_on_off_camera
+			// 
+			this->button_on_off_camera->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->button_on_off_camera->CheckedState->Parent = this->button_on_off_camera;
+			this->button_on_off_camera->HoverState->ImageSize = System::Drawing::Size(30, 30);
+			this->button_on_off_camera->HoverState->Parent = this->button_on_off_camera;
+			this->button_on_off_camera->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button_on_off_camera.Image")));
+			this->button_on_off_camera->ImageSize = System::Drawing::Size(30, 30);
+			this->button_on_off_camera->Location = System::Drawing::Point(126, 44);
+			this->button_on_off_camera->Name = L"button_on_off_camera";
+			this->button_on_off_camera->PressedState->Parent = this->button_on_off_camera;
+			this->button_on_off_camera->Size = System::Drawing::Size(36, 36);
+			this->button_on_off_camera->TabIndex = 18;
+			this->button_on_off_camera->Click += gcnew System::EventHandler(this, &HomeForm::button_on_off_camera_Click);
+			// 
 			// button_record
 			// 
 			this->button_record->Anchor = System::Windows::Forms::AnchorStyles::Top;
@@ -748,7 +839,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->button_record->HoverState->Parent = this->button_record;
 			this->button_record->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button_record.Image")));
 			this->button_record->ImageSize = System::Drawing::Size(30, 30);
-			this->button_record->Location = System::Drawing::Point(114, 44);
+			this->button_record->Location = System::Drawing::Point(6, 44);
 			this->button_record->Name = L"button_record";
 			this->button_record->PressedState->Parent = this->button_record;
 			this->button_record->Size = System::Drawing::Size(36, 36);
@@ -799,22 +890,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->textBox_add_new_user_room->Size = System::Drawing::Size(317, 42);
 			this->textBox_add_new_user_room->TabIndex = 13;
 			// 
-			// button_conf_cancel_call
-			// 
-			this->button_conf_cancel_call->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->button_conf_cancel_call->CheckedState->Parent = this->button_conf_cancel_call;
-			this->button_conf_cancel_call->HoverState->ImageSize = System::Drawing::Size(30, 30);
-			this->button_conf_cancel_call->HoverState->Parent = this->button_conf_cancel_call;
-			this->button_conf_cancel_call->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button_conf_cancel_call.Image")));
-			this->button_conf_cancel_call->ImageSize = System::Drawing::Size(30, 30);
-			this->button_conf_cancel_call->Location = System::Drawing::Point(198, 47);
-			this->button_conf_cancel_call->Name = L"button_conf_cancel_call";
-			this->button_conf_cancel_call->PressedState->Parent = this->button_conf_cancel_call;
-			this->button_conf_cancel_call->Size = System::Drawing::Size(36, 36);
-			this->button_conf_cancel_call->TabIndex = 15;
-			this->button_conf_cancel_call->Visible = false;
-			this->button_conf_cancel_call->Click += gcnew System::EventHandler(this, &HomeForm::button_conf_cancel_call_Click);
-			// 
 			// button_add_new_user
 			// 
 			this->button_add_new_user->Anchor = System::Windows::Forms::AnchorStyles::Top;
@@ -823,7 +898,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->button_add_new_user->HoverState->Parent = this->button_add_new_user;
 			this->button_add_new_user->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button_add_new_user.Image")));
 			this->button_add_new_user->ImageSize = System::Drawing::Size(30, 30);
-			this->button_add_new_user->Location = System::Drawing::Point(284, 47);
+			this->button_add_new_user->Location = System::Drawing::Point(284, 44);
 			this->button_add_new_user->Name = L"button_add_new_user";
 			this->button_add_new_user->PressedState->Parent = this->button_add_new_user;
 			this->button_add_new_user->Size = System::Drawing::Size(36, 36);
@@ -838,7 +913,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->button_conf_start_call->HoverState->Parent = this->button_conf_start_call;
 			this->button_conf_start_call->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button_conf_start_call.Image")));
 			this->button_conf_start_call->ImageSize = System::Drawing::Size(30, 30);
-			this->button_conf_start_call->Location = System::Drawing::Point(156, 47);
+			this->button_conf_start_call->Location = System::Drawing::Point(179, 44);
 			this->button_conf_start_call->Name = L"button_conf_start_call";
 			this->button_conf_start_call->PressedState->Parent = this->button_conf_start_call;
 			this->button_conf_start_call->Size = System::Drawing::Size(36, 36);
@@ -847,17 +922,15 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// label_conf_name_room
 			// 
-			this->label_conf_name_room->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				| System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->label_conf_name_room->AutoSize = true;
+			this->label_conf_name_room->Dock = System::Windows::Forms::DockStyle::Top;
 			this->label_conf_name_room->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label_conf_name_room->Location = System::Drawing::Point(77, 3);
+			this->label_conf_name_room->Location = System::Drawing::Point(0, 0);
 			this->label_conf_name_room->Name = L"label_conf_name_room";
-			this->label_conf_name_room->Size = System::Drawing::Size(186, 41);
+			this->label_conf_name_room->Size = System::Drawing::Size(329, 41);
 			this->label_conf_name_room->TabIndex = 13;
 			this->label_conf_name_room->Text = L"Name_room";
+			this->label_conf_name_room->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// panel_conf
 			// 
@@ -1184,7 +1257,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->MinimumSize = System::Drawing::Size(1370, 813);
 			this->Name = L"HomeForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"HomeForm";
+			this->Text = L"Главное окно";
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &HomeForm::HomeForm_FormClosing);
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &HomeForm::HomeForm_FormClosed);
@@ -1201,8 +1274,8 @@ private: System::ComponentModel::IContainer^ components;
 			this->panel_home_studio->ResumeLayout(false);
 			this->panel_studio_conf->ResumeLayout(false);
 			this->panel_studio_conf->PerformLayout();
+			this->panel_tab->ResumeLayout(false);
 			this->panel_studio_users->ResumeLayout(false);
-			this->panel_studio_users->PerformLayout();
 			this->panel_studio_room->ResumeLayout(false);
 			this->panel_music->ResumeLayout(false);
 			this->panel_music->PerformLayout();
@@ -1252,6 +1325,21 @@ private: System::ComponentModel::IContainer^ components;
 		Load_List_Audio();
 	}
 
+	private: System::Void guna2Button5_Click(System::Object^ sender, System::EventArgs^ e) {
+		MusicEditForm^ editMusic = gcnew MusicEditForm(user_id, ip, teme);
+		editMusic->Show();
+	}
+
+	private: System::Void guna2Button4_Click(System::Object^ sender, System::EventArgs^ e) {
+		Tabs^ tabs = gcnew Tabs();
+		tabs->Show();
+	}
+
+	private: System::Void guna2Button6_Click(System::Object^ sender, System::EventArgs^ e) {
+		MyForm^ myForm = gcnew MyForm();
+		myForm->Show();
+	}
+
 	private: System::Void button_exit_Click(System::Object^ sender, System::EventArgs^ e) {
 		Microsoft::Win32::RegistryKey^ currentPathKEY = Microsoft::Win32::Registry::CurrentUser;
 
@@ -1285,12 +1373,15 @@ private: System::ComponentModel::IContainer^ components;
 
 	private: System::Void button_conf_start_call_Click(System::Object^ sender, System::EventArgs^ e);
 
-	private: void WebRTCConf(String^ id);
+	private: System::Void button_on_off_camera_Click(System::Object^ sender, System::EventArgs^ e);
+
+	private: void WebRTCConf(String^ id, int cam_on);
 
 	private: String^ LoadLinkRoom(String^ id);
 
 	private: System::Void button_conf_cancel_call_Click(System::Object^ sender, System::EventArgs^ e);
 
+	private: System::Void button_settings_conf_Click(System::Object^ sender, System::EventArgs^ e);
 
 
 	private: System::Void button_add_new_user_Click(System::Object^ sender, System::EventArgs^ e);
@@ -1321,13 +1412,15 @@ private: System::ComponentModel::IContainer^ components;
 	//Завершаем запись
 	private: void StopRecording();
 
+	private: bool ProcessData(WaveInEventArgs^ e);
+
 	//Для изменения цветов интерфейса
 	private: void SetupInterface();
 
 	//Сохраняем запись на сервере
 	private: void saveAudioFile();
 
-	private: void saveFile(String^ uri, String^ filePath);
+	//private: void saveFile(String^ uri, String^ filePath);
 
 	private: void addInfoAudioFile(String^ name_audio, String^ name_creators, String^ path_picture);
 
@@ -1395,5 +1488,6 @@ private: System::ComponentModel::IContainer^ components;
 	private: System::Void button_load_list_music_Click(System::Object^ sender, System::EventArgs^ e);
 
 	private: System::Void button_load_list_way_Click(System::Object^ sender, System::EventArgs^ e);
+
 };
 }

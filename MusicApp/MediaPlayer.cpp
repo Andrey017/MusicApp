@@ -57,6 +57,9 @@ System::Void MusicApp::HomeForm::pictureBox_music_stop_Click(System::Object^ sen
 
 	pictureBox_start_stop_music->Image = Image::FromFile(path_pict_button);
 	timer_currentTime_audio->Stop();
+	minute_current = 0;
+	currTime = 0;
+	trackBar_current_position->Value = 0;
 }
 
 System::Void MusicApp::HomeForm::guna2PictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -115,6 +118,11 @@ void MusicApp::HomeForm::loadMusicFile() {
 	String^ path_pict_button;
 	
 	DisposeWave();
+
+	timer_currentTime_audio->Stop();
+	minute_current = 0;
+	currTime = 0;
+	trackBar_current_position->Value = 0;
 
 	//file_music = openFileDialog_audio_file->FileName;
 

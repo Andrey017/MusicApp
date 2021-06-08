@@ -1,4 +1,7 @@
 #pragma once
+
+#include <time.h>
+
 #include <msclr\marshal.h>
 #include <msclr\marshal_cppstd.h>
 
@@ -62,6 +65,48 @@ public:
 		std::string r(pszAnsi);
 		delete[] pszAnsi;
 		return r;
+	}
+
+	inline void saveFile(String^ uri, String^ filePath) {
+		String^ formdataTemplate = "Content-Disposition: form-data; name=\"filedata\"; filename=\"{0}\";\r\nContent-Type: image/png\r\n\r\n";
+
+		time_t tim = time(NULL);
+
+		String^ boundary = "---------------------------" + tim; //DateTime::Now;
+		array<Byte>^ boundarybytes = Encoding::ASCII->GetBytes("\r\n--" + boundary + "\r\n");
+
+		WebRequest^ request = safe_cast<System::Net::HttpWebRequest^>(System::Net::HttpWebRequest::Create(uri));
+		request->Method = "POST";
+		request->ContentType = "multipart/form-data; boundary=" + boundary;
+
+		FileStream^ fileStream = gcnew FileStream(filePath, FileMode::Open, FileAccess::Read, FileShare::Read);
+
+		Stream^ requestStream = request->GetRequestStream();
+
+		requestStream->Write(boundarybytes, 0, boundarybytes->Length);
+		String^ formItem = String::Format(formdataTemplate, Path::GetFileName(filePath));
+		array<Byte>^ formBytes = Encoding::UTF8->GetBytes(formItem);
+		requestStream->Write(formBytes, 0, formBytes->Length);
+		array<Byte>^ buffer = gcnew array<Byte>(1024 * 4);
+		int bytesLeft = 0;
+
+		while ((bytesLeft = fileStream->Read(buffer, 0, buffer->Length)) > 0)
+		{
+			requestStream->Write(buffer, 0, bytesLeft);
+		}
+
+		try {
+			WebResponse^ response = request->GetResponse();
+
+			Stream^ data = response->GetResponseStream();
+			StreamReader^ reader = gcnew StreamReader(data);
+			String^ data_result = reader->ReadToEnd();
+
+			response->Close();
+		}
+		catch (Exception^ e) {
+			Console::Write(e->Message);
+		}
 	}
 };
 

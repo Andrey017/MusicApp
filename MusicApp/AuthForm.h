@@ -26,6 +26,8 @@ namespace MusicApp {
 			//
 
 			PictureBox__Auth_Dark->Visible = false;
+
+			timer1->Start();
 		}
 
 	protected:
@@ -586,6 +588,7 @@ namespace MusicApp {
 			this->panel_back->Name = L"panel_back";
 			this->panel_back->Size = System::Drawing::Size(60, 20);
 			this->panel_back->TabIndex = 7;
+			this->panel_back->Visible = false;
 			// 
 			// panel_front
 			// 
@@ -594,6 +597,7 @@ namespace MusicApp {
 			this->panel_front->Name = L"panel_front";
 			this->panel_front->Size = System::Drawing::Size(24, 16);
 			this->panel_front->TabIndex = 8;
+			this->panel_front->Visible = false;
 			this->panel_front->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &AuthForm::panel_front_MouseDown);
 			// 
 			// timer1

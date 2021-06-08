@@ -62,6 +62,9 @@ void MusicApp::HomeForm::SetupInterface() {
 	panel_studio_room->BackColor = Color::FromArgb(d_r_back, d_g_back, d_b_back);
 	panel_studio_conf->BackColor = Color::FromArgb(d_r_back, d_g_back, d_b_back);
 
+	panel_tab->BackColor = Color::FromArgb(d_r_back, d_g_back, d_b_back);
+	panel_tab_tab->BackColor = Color::FromArgb(d_r_back, d_g_back, d_b_back);
+
 	textBox_add_room->BackColor = Color::FromArgb(d_r_back, d_g_back, d_b_back);
 	textBox_add_room->FillColor = Color::FromArgb(40, 40, 40);
 	textBox_add_room->ForeColor = Color::FromArgb(d_text_color, d_text_color, d_text_color);
@@ -81,7 +84,11 @@ void MusicApp::HomeForm::SetupInterface() {
 
 	button_add_new_user->Image = Image::FromFile("./image/icons8_add_50px_white.png");
 	button_conf_start_call->Image = Image::FromFile("./image/icons8_call_50px_white.png");
-	button_conf_cancel_call->Image = Image::FromFile("./image/icons8_call_disconnected_50px_white.png");
+	button_on_off_camera->Image = Image::FromFile("./image/icons8_video_call_50px_white.png");
+	//button_conf_cancel_call->Image = Image::FromFile("./image/icons8_call_disconnected_50px_white.png");
+	button_settings_conf->Image = Image::FromFile("./image/icons8_settings_50px_white.png");
+
+	button_open_tab->Image = Image::FromFile("./image/icons8_create_50px_white.png");
 
 	//Настройка раздела Библиотека
 	flowLayoutPanel_library_item_audio->BackColor = Color::FromArgb(d_r_back, d_g_back, d_b_back);

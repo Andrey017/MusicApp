@@ -101,8 +101,54 @@ System::Void MusicApp::HomeForm::guna2ImageButton1_Click(System::Object^ sender,
 	Load_Room();
 }
 
-System::Void MusicApp::HomeForm::button_conf_start_call_Click(System::Object^ sender, System::EventArgs^ e) {	
-	WebRTCConf(gl_room_id);
+System::Void MusicApp::HomeForm::button_conf_start_call_Click(System::Object^ sender, System::EventArgs^ e) {
+	video_on = false;
+
+	button_on_off_camera->Image = Image::FromFile("./image/icons8_video_call_50px.png");
+
+	if (!call_start) {
+		WebRTCConf(gl_room_id, 0);
+
+		call_start = true;
+
+		button_conf_start_call->Image = Image::FromFile("./image/icons8_call_disconnected_50px_white.png");;
+	}
+	else {
+		String^ linkRoom = "https://" + ip + ":8443/temp";
+
+		browser->Load(linkRoom);
+
+		panel_conf->Height = 0;
+
+		button_conf_start_call->Image = Image::FromFile("./image/icons8_call_50px_white.png");
+
+		call_start = false;
+	}
+}
+
+System::Void MusicApp::HomeForm::button_on_off_camera_Click(System::Object^ sender, System::EventArgs^ e) {
+	call_start = false;
+
+	button_conf_start_call->Image = Image::FromFile("./image/icons8_call_50px_white.png");
+
+	if (!video_on) {
+		WebRTCConf(gl_room_id, 1);
+
+		video_on = true;
+
+		button_on_off_camera->Image = Image::FromFile("./image/icons8_no_video_50px.png");
+	}
+	else {
+		String^ linkRoom = "https://" + ip + ":8443/temp";
+
+		browser->Load(linkRoom);
+
+		panel_conf->Height = 0;
+
+		video_on = false;
+
+		button_on_off_camera->Image = Image::FromFile("./image/icons8_video_call_50px.png");
+	}
 }
 
 System::Void MusicApp::HomeForm::button_conf_cancel_call_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -112,21 +158,26 @@ System::Void MusicApp::HomeForm::button_conf_cancel_call_Click(System::Object^ s
 	
 	panel_conf->Height = 0;
 	
-	button_conf_start_call->Visible = true;
-	button_conf_cancel_call->Visible = false;
+	//button_conf_start_call->Visible = true;
+	//button_conf_cancel_call->Visible = false;
 }
 
-void MusicApp::HomeForm::WebRTCConf(String^ id) {
+System::Void MusicApp::HomeForm::button_settings_conf_Click(System::Object^ sender, System::EventArgs^ e) {
+	SettingsStudioForm^ settForm = gcnew SettingsStudioForm();
+	settForm->Show();
+}
+
+void MusicApp::HomeForm::WebRTCConf(String^ id, int cam_on) {
 	String^ codeRoom = LoadLinkRoom(id);
 
-	String^ linkRoom = "https://" + ip + ":8443/?room=" + codeRoom + "&user_name=" + name_surname;
+	String^ linkRoom = "https://" + ip + ":8443/?room=" + codeRoom + "&user_name=" + name_surname + "&cam_on=" + cam_on;
 
-	panel_conf->Height = 400;
+	panel_conf->Height = 500;
 	browser->Load(linkRoom);
 	browser->Dock = DockStyle::Fill;
 
-	button_conf_start_call->Visible = false;
-	button_conf_cancel_call->Visible = true;
+	//button_conf_start_call->Visible = false;
+	//button_conf_cancel_call->Visible = true;
 }
 
 String^ MusicApp::HomeForm::LoadLinkRoom(String^ id) {
@@ -248,47 +299,47 @@ void MusicApp::HomeForm::addUserRoomItem(std::vector<std::string> list_name_user
 	}
 }
 
-void MusicApp::HomeForm::saveFile(String^ uri, String^ filePath) {
-	String^ formdataTemplate = "Content-Disposition: form-data; name=\"filedata\"; filename=\"{0}\";\r\nContent-Type: image/png\r\n\r\n";
-
-	time_t tim = time(NULL);
-
-	String^ boundary = "---------------------------" + tim; //DateTime::Now;
-	array<Byte>^ boundarybytes = Encoding::ASCII->GetBytes("\r\n--" + boundary + "\r\n");
-
-	WebRequest^ request = safe_cast<System::Net::HttpWebRequest^>(System::Net::HttpWebRequest::Create(uri));
-	request->Method = "POST";
-	request->ContentType = "multipart/form-data; boundary=" + boundary;
-
-	FileStream^ fileStream = gcnew FileStream(filePath, FileMode::Open, FileAccess::Read, FileShare::Read);
-
-	Stream^ requestStream = request->GetRequestStream();
-
-	requestStream->Write(boundarybytes, 0, boundarybytes->Length);
-	String^ formItem = String::Format(formdataTemplate, Path::GetFileName(filePath));
-	array<Byte>^ formBytes = Encoding::UTF8->GetBytes(formItem);
-	requestStream->Write(formBytes, 0, formBytes->Length);
-	array<Byte>^ buffer = gcnew array<Byte>(1024 * 4);
-	int bytesLeft = 0;
-
-	while ((bytesLeft = fileStream->Read(buffer, 0, buffer->Length)) > 0)
-	{
-		requestStream->Write(buffer, 0, bytesLeft);
-	}
-
-	try {
-		WebResponse^ response = request->GetResponse();
-
-		Stream^ data = response->GetResponseStream();
-		StreamReader^ reader = gcnew StreamReader(data);
-		String^ data_result = reader->ReadToEnd();
-
-		response->Close();
-	}
-	catch (Exception^ e) {
-		Console::Write(e->Message);
-	}
-}
+//void MusicApp::HomeForm::saveFile(String^ uri, String^ filePath) {
+//	String^ formdataTemplate = "Content-Disposition: form-data; name=\"filedata\"; filename=\"{0}\";\r\nContent-Type: image/png\r\n\r\n";
+//
+//	time_t tim = time(NULL);
+//
+//	String^ boundary = "---------------------------" + tim; //DateTime::Now;
+//	array<Byte>^ boundarybytes = Encoding::ASCII->GetBytes("\r\n--" + boundary + "\r\n");
+//
+//	WebRequest^ request = safe_cast<System::Net::HttpWebRequest^>(System::Net::HttpWebRequest::Create(uri));
+//	request->Method = "POST";
+//	request->ContentType = "multipart/form-data; boundary=" + boundary;
+//
+//	FileStream^ fileStream = gcnew FileStream(filePath, FileMode::Open, FileAccess::Read, FileShare::Read);
+//
+//	Stream^ requestStream = request->GetRequestStream();
+//
+//	requestStream->Write(boundarybytes, 0, boundarybytes->Length);
+//	String^ formItem = String::Format(formdataTemplate, Path::GetFileName(filePath));
+//	array<Byte>^ formBytes = Encoding::UTF8->GetBytes(formItem);
+//	requestStream->Write(formBytes, 0, formBytes->Length);
+//	array<Byte>^ buffer = gcnew array<Byte>(1024 * 4);
+//	int bytesLeft = 0;
+//
+//	while ((bytesLeft = fileStream->Read(buffer, 0, buffer->Length)) > 0)
+//	{
+//		requestStream->Write(buffer, 0, bytesLeft);
+//	}
+//
+//	try {
+//		WebResponse^ response = request->GetResponse();
+//
+//		Stream^ data = response->GetResponseStream();
+//		StreamReader^ reader = gcnew StreamReader(data);
+//		String^ data_result = reader->ReadToEnd();
+//
+//		response->Close();
+//	}
+//	catch (Exception^ e) {
+//		Console::Write(e->Message);
+//	}
+//}
 
 void MusicApp::HomeForm::loadsaveAvatar(String^ name_file) {
 	String^ link = "http://" + ip + ":8011/uploads/picture/" + name_file;
@@ -314,11 +365,11 @@ void MusicApp::HomeForm::loadsaveAvatar(String^ name_file) {
 void MusicApp::HomeForm::OnDownloadIndicator(System::Object^ sender, System::Net::DownloadProgressChangedEventArgs^ e) {
 	//throw gcnew System::NotImplementedException();
 
-	progressIndicator_user_load->Start();
-	progressIndicator_user_load->Visible = true;
+	//progressIndicator_user_load->Start();
+	//progressIndicator_user_load->Visible = true;
 }
 
 void MusicApp::HomeForm::stopWaitingLoadFile(System::Object^ sender, AsyncCompletedEventArgs^ e) {
-	progressIndicator_user_load->Stop();
-	progressIndicator_user_load->Visible = false;
+	//progressIndicator_user_load->Stop();
+	//progressIndicator_user_load->Visible = false;
 }
