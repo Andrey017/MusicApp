@@ -1,0 +1,937 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<blocks>
+  <block id="0">
+    <string num="0">
+      <element el_id="0">
+        <value>1</value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>1</value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>1</value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>1</value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+    <string num="1">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+    <string num="2">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+    <string num="3">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+    <string num="4">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+    <string num="5">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+  </block>
+  <block id="1">
+    <string num="0">
+      <element el_id="0">
+        <value>2</value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>2</value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>2</value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>2</value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+    <string num="1">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+    <string num="2">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+    <string num="3">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+    <string num="4">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+    <string num="5">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+  </block>
+  <block id="2">
+    <string num="0">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+    <string num="1">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>7</value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+    <string num="2">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+    <string num="3">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+    <string num="4">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+    <string num="5">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+  </block>
+  <block id="3">
+    <string num="0">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+    <string num="1">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+    <string num="2">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+    <string num="3">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>8</value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+    <string num="4">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>0</value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+    <string num="5">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+  </block>
+  <block id="4">
+    <string num="0">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>5</value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+    <string num="1">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+    <string num="2">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>3</value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+    <string num="3">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+    <string num="4">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+    <string num="5">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+  </block>
+  <block id="5">
+    <string num="0">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+    <string num="1">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+    <string num="2">
+      <element el_id="0">
+        <value>1</value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+    <string num="3">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+    <string num="4">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+    <string num="5">
+      <element el_id="0">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="1">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="2">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+      <element el_id="3">
+        <value>
+        </value>
+        <effect>
+        </effect>
+      </element>
+    </string>
+  </block>
+</blocks>

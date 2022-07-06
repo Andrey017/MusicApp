@@ -1,0 +1,90 @@
+body {
+    background-color: black;
+}
+
+p {
+    color: blanchedalmond;
+    text-align: center;
+}
+
+.remote-video{
+    position: relative;
+    object-fit: cover !important;
+    height: 200px;
+
+    border-radius: 30px; /* Радиус скругления */
+    border: 3px solid green; /* Параметры рамки */
+    box-shadow: 0 0 7px #666; /* Параметры тени */
+
+    background: url('http://94.141.168.185:8011/uploads/no_video.png') center no-repeat black;
+}
+
+.card {
+    position: relative; 
+    width: 200px;
+    height: 200px;
+
+    border: none;
+    background-color: rgb(0, 0, 0);
+}
+
+.card-body{
+    position: relative; 
+    width: 200px;
+    height: 200px;
+
+    border-radius: 30px;
+    border: 3px solid green;
+}
+
+.main{
+    padding-top: 40px;
+}
+
+.local-video{
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    height: 100px;
+    width: 200px;
+    z-index: 1000;
+
+    object-fit: cover !important;
+
+    border-radius: 30px;
+    border: 3px solid green;
+    box-shadow: 0 0 7px #666;
+
+    background: url('http://94.141.168.185:8011/uploads/no_video.png') center no-repeat black;
+}
+
+
+.sender-info{
+    font-size: smaller;
+    margin-top: 5px;
+    align-self: flex-end;
+}
+
+
+.msg{
+    font-weight: 400;
+    font-size: 12px;
+    color: black;
+    background-color: wheat;
+}
+
+
+.chat-card{
+    border-radius: 6px;
+}
+
+
+.btn-no-effect:focus{
+    box-shadow: none;
+}
+
+.very-small{
+    font-size: 6px !important;
+}
+
+
